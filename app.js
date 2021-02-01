@@ -7,7 +7,7 @@ const earthImg = document.querySelector(".Earth img");
 const description = document.querySelector(".info h3"); 
 const title = document.querySelector(".title");
 const planetsButton = document.querySelector(".planets button");
-const planetsImg = document.querySelector(".planets img");
+const planetsImages = document.querySelectorAll(".planets img");
 const habitat = document.querySelector(".habitat");
 
 
@@ -23,29 +23,33 @@ container.addEventListener("mousemove", (eve) => {
 
 //Animate In
 container.addEventListener("mouseenter", (eve) => {
-card.style.transition = "none";
+    card.style.transition = "none";
 
-//Popout
-title.style.transform = "translateZ(150px)";
-earthImg.style.transform = "translateZ(200px) rotate(-50deg)";
-description.style.transform = "translateZ(125px)";
-planetsButton.style.transform = "translateZ(100px)";
-planetsImg.style.transform = "translateZ(75px) rotate(-5deg)";
-habitat.style.transform = "translateZ(50px)";
+    //Popout
+    title.style.transform = "translateZ(150px)";
+    earthImg.style.transform = "translateZ(200px) rotate(-50deg)";
+    description.style.transform = "translateZ(125px)";
+    planetsButton.style.transform = "translateZ(100px)";
+    habitat.style.transform = "translateZ(50px)";
 
+    planetsImages.forEach((el) => {
+        el.style.transform = "translateZ(75px) rotate(-5deg)";
+    });
 });
 
 //Animate Out
 container.addEventListener("mouseleave", (eve) => {
-card.style.transition = "all 0.5s ease";
-card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+    card.style.transition = "all 0.5s ease";
+    card.style.transform = `rotateY(0deg) rotateX(0deg)`;
 
-//Popback
-title.style.transform = "translateZ(150px)";
-earthImg.style.transform = "translateZ(0px) rotate(0deg)";
-description.style.transform = "translateZ(0px)";
-planetsButton.style.transform = "translateZ(0px)";
-planetsImg.style.transform = "translateZ(0px) rotate(0deg)";
-habitat.style.transform = "translateZ(0px)";
+    //Popback
+    title.style.transform = "translateZ(150px)";
+    earthImg.style.transform = "translateZ(0px) rotate(0deg)";
+    description.style.transform = "translateZ(0px)";
+    planetsButton.style.transform = "translateZ(0px)";
+    habitat.style.transform = "translateZ(0px)";
 
+    planetsImages.forEach((el) => {
+        el.style.transform = "translateZ(0px) rotate(0deg)";
+    });
 });
